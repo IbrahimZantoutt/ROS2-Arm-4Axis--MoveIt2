@@ -2,14 +2,14 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 import os
+import xacro
 
 def generate_launch_description():
     pkg = get_package_share_directory('moveit_arm_package')
-    urdf_path = os.path.join(pkg, 'urdf', 'arm.urdf')
+    urdf_path = os.path.join(pkg, 'urdf', 'arm.urdf.xacro')
     rviz_config = os.path.join(pkg, 'rviz', 'arm.rviz')
 
-    with open(urdf_path, 'r') as f:
-        robot_description = f.read()
+    robot_description = xacro.process_file(urdf_path).toxml()
 
     return LaunchDescription([
         Node(

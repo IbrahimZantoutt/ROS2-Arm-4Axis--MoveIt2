@@ -1,15 +1,6 @@
 <?xml version="1.0"?>
 <robot name="arm_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <!-- Fixed anchor so Gazebo doesn't drop the robot under gravity -->
-    <link name="world"/>
-    <joint name="world_joint" type="fixed">
-        <parent link="world"/>
-        <child link="robot_base"/>
-        <!-- z=0.05 places the bottom face of the 0.1-tall base exactly on the ground -->
-        <origin xyz="0 0 0.05" rpy="0 0 0"/>
-    </joint>
-
     <link name="robot_base">
         <visual>
             <geometry>
@@ -37,7 +28,7 @@
         </visual>
         <collision>
             <geometry>
-                <sphere radius="0.035"/>
+                <sphere radius="0.02"/>
             </geometry>
         </collision>
         <inertial>
@@ -65,9 +56,9 @@
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0 0 0.05" rpy="0 0 0"/>
+            <origin xyz="0 0 0.04" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.1"/>
+                <cylinder radius="0.03" length="0.08"/>
             </geometry>
         </collision>
         <inertial>
@@ -94,7 +85,7 @@
         </visual>
         <collision>
             <geometry>
-                <sphere radius="0.035"/>
+                <sphere radius="0.02"/>
             </geometry>
         </collision>
         <inertial>
@@ -122,9 +113,9 @@
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0 0 0.15" rpy="0 0 0"/>
+            <origin xyz="0 0 0.165" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.4"/>
+                <cylinder radius="0.03" length="0.33"/>
             </geometry>
         </collision>
         <inertial>
@@ -151,7 +142,7 @@
         </visual>
         <collision>
             <geometry>
-                <sphere radius="0.035"/>
+                <sphere radius="0.02"/>
             </geometry>
         </collision>
         <inertial>
@@ -181,7 +172,7 @@
         <collision>
             <origin xyz="0 0 0.15" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.35"/>
+                <cylinder radius="0.03" length="0.30"/>
             </geometry>
         </collision>
         <inertial>
@@ -208,7 +199,7 @@
         </visual>
         <collision>
             <geometry>
-                <sphere radius="0.035"/>
+                <sphere radius="0.02"/>
             </geometry>
         </collision>
         <inertial>
@@ -352,7 +343,7 @@
     <!-- ============================================================ -->
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
-            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+            <plugin>mock_components/GenericSystem</plugin>
         </hardware>
         <joint name="shoulder_main_joint">
             <command_interface name="position">
@@ -407,7 +398,7 @@
     <!-- Gazebo plugin — loads controllers from controllers.yaml -->
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters>$(find main_arm_package)/config/controllers.yaml</parameters>
+            <parameters>$(find moveit_arm_package)/config/controllers.yaml</parameters>
         </plugin>
     </gazebo>
 
