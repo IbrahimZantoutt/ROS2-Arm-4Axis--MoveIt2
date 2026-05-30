@@ -1,3 +1,4 @@
+/home/ibrahim/MoveItArm/install/moveit_arm_package/lib/moveit_arm_package/arm_controller
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/urdf/arm.urdf.xacro
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/launch/display.launch.py
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/rviz/arm.rviz

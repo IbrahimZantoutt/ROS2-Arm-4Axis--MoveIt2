@@ -197,6 +197,43 @@ moveit_arm_package_uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/moveit_arm_package_uninstall.dir/build.make CMakeFiles/moveit_arm_package_uninstall.dir/build
 .PHONY : moveit_arm_package_uninstall/fast
 
+#=============================================================================
+# Target rules for targets named arm_controller
+
+# Build rule for target.
+arm_controller: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 arm_controller
+.PHONY : arm_controller
+
+# fast build rule for target.
+arm_controller/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_controller.dir/build.make CMakeFiles/arm_controller.dir/build
+.PHONY : arm_controller/fast
+
+src/ArmController.o: src/ArmController.cpp.o
+.PHONY : src/ArmController.o
+
+# target to build an object file
+src/ArmController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_controller.dir/build.make CMakeFiles/arm_controller.dir/src/ArmController.cpp.o
+.PHONY : src/ArmController.cpp.o
+
+src/ArmController.i: src/ArmController.cpp.i
+.PHONY : src/ArmController.i
+
+# target to preprocess a source file
+src/ArmController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_controller.dir/build.make CMakeFiles/arm_controller.dir/src/ArmController.cpp.i
+.PHONY : src/ArmController.cpp.i
+
+src/ArmController.s: src/ArmController.cpp.s
+.PHONY : src/ArmController.s
+
+# target to generate assembly for a file
+src/ArmController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_controller.dir/build.make CMakeFiles/arm_controller.dir/src/ArmController.cpp.s
+.PHONY : src/ArmController.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +249,10 @@ help:
 	@echo "... test"
 	@echo "... moveit_arm_package_uninstall"
 	@echo "... uninstall"
+	@echo "... arm_controller"
+	@echo "... src/ArmController.o"
+	@echo "... src/ArmController.i"
+	@echo "... src/ArmController.s"
 .PHONY : help
 
 

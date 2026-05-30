@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/opt/ros/humble/include/**",
+        "/home/ibrahim/MoveItArm/install/*/include/**"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/g++",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "linux-gcc-x64",
+      "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+    }
+  ],
+  "version": 4
+}
