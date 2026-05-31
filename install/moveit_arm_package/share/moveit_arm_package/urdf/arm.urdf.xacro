@@ -191,6 +191,63 @@
         <origin xyz="0 0 0.035" rpy="0 0 0"/>
     </joint>
 
+
+     <link name="forearm_link">
+        <visual>
+            <geometry>
+                <sphere radius="0.035"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.02"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.05"/>
+            <inertia ixx="0.0000245" ixy="0" ixz="0"
+                                     iyy="0.0000245" iyz="0"
+                                                     izz="0.0000245"/>
+        </inertial>
+    </link>
+
+    <joint name="forearm_main_joint" type="revolute">
+        <parent link="elbow_arm"/>
+        <child link="forearm_link"/>
+        <origin xyz="0 0 0.32" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.14159" upper="3.14159" effort="10" velocity="1"/>
+        <dynamics damping="0.5" friction="0.1"/>
+    </joint>
+
+    <link name="forearm_arm">
+        <visual>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.03" length="0.02"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.03" length="0.02"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0.01"/>
+            <mass value="0.02"/>
+            <inertia ixx="0.0000245" ixy="0" ixz="0"
+                                     iyy="0.0000245" iyz="0"
+                                                     izz="0.0000245"/>
+        </inertial>
+    </link>
+
+    <joint name="forearm_arm_joint" type="fixed">
+        <parent link="forearm_link"/>
+        <child link="forearm_arm"/>
+        <origin xyz="0 0 0.035" rpy="0 0 0"/>
+    </joint>
+
     <link name="wrist_link">
         <visual>
             <geometry>
@@ -211,9 +268,9 @@
     </link>
 
     <joint name="wrist_main_joint" type="revolute">
-        <parent link="elbow_arm"/>
+        <parent link="forearm_arm"/>
         <child link="wrist_link"/>
-        <origin xyz="0 0 0.32" rpy="0 0 0"/>
+        <origin xyz="0 0 0.02" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
         <limit lower="-2.094" upper="2.094" effort="10" velocity="1"/>
         <dynamics damping="0.5" friction="0.1"/>
@@ -242,10 +299,13 @@
     </link>
 
     <!-- passive structural joint — always at 0, fixed for simulation -->
-    <joint name="wrist_arm_joint" type="fixed">
+    <joint name="wrist_arm_joint" type="revolute">
         <parent link="wrist_link"/>
         <child link="wrist_arm"/>
         <origin xyz="0 0 0.025" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.14159" upper="3.14159" effort="10" velocity="1"/>
+        <dynamics damping="0.5" friction="0.1"/>
     </joint>
 
     <link name="gripper_base">
@@ -370,6 +430,22 @@
             <state_interface name="velocity"/>
         </joint>
         <joint name="spin_main_joint">
+            <command_interface name="position">
+                <param name="min">-3.14159</param>
+                <param name="max">3.14159</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="forearm_main_joint">
+            <command_interface name="position">
+                <param name="min">-3.14159</param>
+                <param name="max">3.14159</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="wrist_arm_joint">
             <command_interface name="position">
                 <param name="min">-3.14159</param>
                 <param name="max">3.14159</param>

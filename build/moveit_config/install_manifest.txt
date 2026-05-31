@@ -24,6 +24,7 @@
 /home/ibrahim/MoveItArm/install/moveit_config/share/moveit_config/config/initial_positions.yaml
 /home/ibrahim/MoveItArm/install/moveit_config/share/moveit_config/config/kinematics.yaml
 /home/ibrahim/MoveItArm/install/moveit_config/share/moveit_config/config/arm_robot.urdf.xacro
+/home/ibrahim/MoveItArm/install/moveit_config/share/moveit_config/config/sensors_3d.yaml
 /home/ibrahim/MoveItArm/install/moveit_config/share/moveit_config/config/arm_robot.srdf
 /home/ibrahim/MoveItArm/install/moveit_config/share/moveit_config/config/moveit_controllers.yaml
 /home/ibrahim/MoveItArm/install/moveit_config/share/moveit_config/config/moveit.rviz

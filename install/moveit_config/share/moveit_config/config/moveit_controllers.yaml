@@ -14,12 +14,14 @@ moveit_simple_controller_manager:
       - shoulder_main_joint
       - elbow_main_joint
       - wrist_main_joint
+      - forearm_main_joint
+      - wrist_arm_joint
     action_ns: follow_joint_trajectory
     default: true
   end_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - gripper_left_finger_joint
       - gripper_right_finger_joint
+    action_ns: follow_joint_trajectory
+    default: true
