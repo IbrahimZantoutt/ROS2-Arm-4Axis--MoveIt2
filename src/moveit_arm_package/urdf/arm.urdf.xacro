@@ -11,6 +11,9 @@
         <origin xyz="0 0 0.05" rpy="0 0 0"/>
     </joint>
 
+    <!-- Camera on a stand, fixed in the world, looking at the arm. -->
+    <xacro:include filename="camera.xacro" />
+
     <link name="robot_base">
         <visual>
             <geometry>
