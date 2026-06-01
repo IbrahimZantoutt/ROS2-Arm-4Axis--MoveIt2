@@ -21,7 +21,7 @@ install(TARGETS arm_controller
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY urdf launch rviz
+install(DIRECTORY urdf launch rviz config
   DESTINATION share/${PROJECT_NAME}
 )
 

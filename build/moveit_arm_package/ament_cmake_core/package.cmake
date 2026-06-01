@@ -5,7 +5,7 @@ set(moveit_arm_package_BUILD_DEPENDS "rclcpp" "moveit_ros_planning_interface" "g
 set(moveit_arm_package_BUILDTOOL_DEPENDS "ament_cmake")
 set(moveit_arm_package_BUILD_EXPORT_DEPENDS "rclcpp" "moveit_ros_planning_interface" "geometry_msgs" "moveit_msgs")
 set(moveit_arm_package_BUILDTOOL_EXPORT_DEPENDS )
-set(moveit_arm_package_EXEC_DEPENDS "xacro" "robot_state_publisher" "joint_state_publisher_gui" "rviz2" "rclcpp" "moveit_ros_planning_interface" "geometry_msgs" "moveit_msgs")
+set(moveit_arm_package_EXEC_DEPENDS "xacro" "robot_state_publisher" "joint_state_publisher_gui" "rviz2" "gazebo_ros" "gazebo_ros2_control" "controller_manager" "joint_state_broadcaster" "joint_trajectory_controller" "moveit_configs_utils" "moveit_ros_move_group" "moveit_ros_visualization" "rclcpp" "moveit_ros_planning_interface" "geometry_msgs" "moveit_msgs")
 set(moveit_arm_package_TEST_DEPENDS )
 set(moveit_arm_package_GROUP_DEPENDS )
 set(moveit_arm_package_MEMBER_OF_GROUPS )

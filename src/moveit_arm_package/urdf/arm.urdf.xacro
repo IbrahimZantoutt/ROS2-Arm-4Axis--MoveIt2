@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <robot name="arm_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <!-- Anchor the robot to the world so it doesn't fall/collapse in Gazebo.
+         Matches the SRDF virtual_joint (fixed, parent_frame=world, child=robot_base).
+         z=0.05 lifts the 0.1m-tall base so it rests on the ground plane. -->
+    <link name="world"/>
+    <joint name="world_joint" type="fixed">
+        <parent link="world"/>
+        <child link="robot_base"/>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+
     <link name="robot_base">
         <visual>
             <geometry>
@@ -403,7 +413,8 @@
     <!-- ============================================================ -->
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
-            <plugin>mock_components/GenericSystem</plugin>
+            <!-- Gazebo Classic 11 hardware interface (was mock_components/GenericSystem for RViz-only) -->
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
         <joint name="shoulder_main_joint">
             <command_interface name="position">

@@ -67,6 +67,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/ibrahim/MoveItArm/src/moveit_arm_package/urdf"
     "/home/ibrahim/MoveItArm/src/moveit_arm_package/launch"
     "/home/ibrahim/MoveItArm/src/moveit_arm_package/rviz"
+    "/home/ibrahim/MoveItArm/src/moveit_arm_package/config"
     )
 endif()
 

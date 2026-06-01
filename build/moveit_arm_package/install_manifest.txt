@@ -1,8 +1,13 @@
 /home/ibrahim/MoveItArm/install/moveit_arm_package/lib/moveit_arm_package/arm_controller
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/urdf/arm.urdf.xacro
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/urdf/camera.xacro
+/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/launch/bringup.launch.py
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/launch/display.launch.py
+/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/launch/moveit.launch.py
+/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/launch/run_controller.launch.py
+/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/launch/gazebo.launch.py
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/rviz/arm.rviz
+/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/config/controllers.yaml
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/ament_index/resource_index/package_run_dependencies/moveit_arm_package
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/ament_index/resource_index/parent_prefix_path/moveit_arm_package
 /home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/environment/ament_prefix_path.sh

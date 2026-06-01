@@ -249,7 +249,8 @@
 			[
 				"urdf",
 				"launch",
-				"rviz"
+				"rviz",
+				"config"
 			],
 			"type" : "directory"
 		},
