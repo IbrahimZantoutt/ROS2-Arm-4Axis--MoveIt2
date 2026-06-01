@@ -7,10 +7,6 @@ controller_manager:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
-    end_controller:
-      type: joint_trajectory_controller/JointTrajectoryController
-
-
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
@@ -23,15 +19,6 @@ arm_controller:
       - wrist_main_joint
       - forearm_main_joint
       - wrist_arm_joint
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-end_controller:
-  ros__parameters:
-    joints:
-      - gripper_left_finger_joint
-      - gripper_right_finger_joint
     command_interfaces:
       - position
     state_interfaces:
