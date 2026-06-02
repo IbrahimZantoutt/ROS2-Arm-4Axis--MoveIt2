@@ -6,6 +6,13 @@
 class VisionNode: public rclcpp::Node{
     public:
         VisionNode(): Node("vision_node"){
+            // Create the windows up front and start HighGUI's own event-pump
+            // thread. On WSLg/GTK, relying on waitKey(1) alone to both create and
+            // map the window is flaky; this makes the windows appear reliably.
+            cv::namedWindow("camera", cv::WINDOW_AUTOSIZE);
+            cv::namedWindow("edges", cv::WINDOW_AUTOSIZE);
+            cv::startWindowThread();
+
             // A plain subscription to the Gazebo camera plugin's image topic.
             // The plugin publishes <camera_name>/image_raw, i.e. /camera/image_raw.
             // SensorDataQoS() is best-effort/volatile, which matches sensor streams.
@@ -18,21 +25,35 @@ class VisionNode: public rclcpp::Node{
 
     private:
         void imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr msg){
-            cv::Mat frame;
+            cv::Mat frame, edges;
             try {
                 // Convert ROS Image -> OpenCV Mat. The camera publishes RGB (R8G8B8
                 // in the urdf), but OpenCV works in BGR, so request bgr8 and cv_bridge
                 // handles the channel swap for us.
                 frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
+                
+                cv::Mat gray;
+                cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);  // frame -> gray
+                cv::Canny(gray, edges, 100, 200);               // gray  -> edges
+
+                
             } catch (const cv_bridge::Exception & e) {
                 RCLCPP_ERROR(this->get_logger(), "cv_bridge error: %s", e.what());
                 return;
+            } catch (const cv::Exception & e) {
+                RCLCPP_ERROR(this->get_logger(), "opencv error: %s", e.what());
+                return;
             }
+
+            // Throttled proof that the callback runs and reaches the display step.
+            RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 1000,
+                "got frame %dx%d enc=%s", frame.cols, frame.rows, msg->encoding.c_str());
 
             // ---- OpenCV processing goes here ----
             // For now, just show it so you can confirm the pipeline works.
             cv::imshow("camera", frame);
-            cv::waitKey(1);
+            cv::imshow("edges", edges);
+            cv::waitKey(30);
         }
 
         rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr image_subscriber_;
