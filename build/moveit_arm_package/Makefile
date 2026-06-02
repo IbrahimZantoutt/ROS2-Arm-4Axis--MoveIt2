@@ -210,6 +210,19 @@ arm_controller/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_controller.dir/build.make CMakeFiles/arm_controller.dir/build
 .PHONY : arm_controller/fast
 
+#=============================================================================
+# Target rules for targets named vision_node
+
+# Build rule for target.
+vision_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 vision_node
+.PHONY : vision_node
+
+# fast build rule for target.
+vision_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vision_node.dir/build.make CMakeFiles/vision_node.dir/build
+.PHONY : vision_node/fast
+
 src/ArmController.o: src/ArmController.cpp.o
 .PHONY : src/ArmController.o
 
@@ -234,6 +247,30 @@ src/ArmController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_controller.dir/build.make CMakeFiles/arm_controller.dir/src/ArmController.cpp.s
 .PHONY : src/ArmController.cpp.s
 
+src/VisionNode.o: src/VisionNode.cpp.o
+.PHONY : src/VisionNode.o
+
+# target to build an object file
+src/VisionNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vision_node.dir/build.make CMakeFiles/vision_node.dir/src/VisionNode.cpp.o
+.PHONY : src/VisionNode.cpp.o
+
+src/VisionNode.i: src/VisionNode.cpp.i
+.PHONY : src/VisionNode.i
+
+# target to preprocess a source file
+src/VisionNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vision_node.dir/build.make CMakeFiles/vision_node.dir/src/VisionNode.cpp.i
+.PHONY : src/VisionNode.cpp.i
+
+src/VisionNode.s: src/VisionNode.cpp.s
+.PHONY : src/VisionNode.s
+
+# target to generate assembly for a file
+src/VisionNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vision_node.dir/build.make CMakeFiles/vision_node.dir/src/VisionNode.cpp.s
+.PHONY : src/VisionNode.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -250,9 +287,13 @@ help:
 	@echo "... moveit_arm_package_uninstall"
 	@echo "... uninstall"
 	@echo "... arm_controller"
+	@echo "... vision_node"
 	@echo "... src/ArmController.o"
 	@echo "... src/ArmController.i"
 	@echo "... src/ArmController.s"
+	@echo "... src/VisionNode.o"
+	@echo "... src/VisionNode.i"
+	@echo "... src/VisionNode.s"
 .PHONY : help
 
 
