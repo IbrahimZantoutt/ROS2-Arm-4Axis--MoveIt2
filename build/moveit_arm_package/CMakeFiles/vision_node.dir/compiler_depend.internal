@@ -754,6 +754,13 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o
  /usr/include/opencv4/opencv2/core/core_c.h
  /usr/include/opencv4/opencv2/core/types_c.h
  /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge_export.h
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/camera_info.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__struct.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/region_of_interest__struct.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__builder.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__traits.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/region_of_interest__traits.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__type_support.hpp
  /usr/include/opencv4/opencv2/opencv.hpp
  /usr/include/opencv4/opencv2/calib3d.hpp
  /usr/include/opencv4/opencv2/features2d.hpp
@@ -836,4 +843,6 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o
  /usr/include/opencv4/opencv2/video.hpp
  /usr/include/opencv4/opencv2/video/tracking.hpp
  /usr/include/opencv4/opencv2/video/background_segm.hpp
+ /usr/include/opencv4/opencv2/aruco.hpp
+ /usr/include/opencv4/opencv2/aruco/dictionary.hpp
 

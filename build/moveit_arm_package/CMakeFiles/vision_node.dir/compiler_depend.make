@@ -753,6 +753,13 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
   /usr/include/opencv4/opencv2/core/core_c.h \
   /usr/include/opencv4/opencv2/core/types_c.h \
   /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge_export.h \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/camera_info.hpp \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__struct.hpp \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/region_of_interest__struct.hpp \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__builder.hpp \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__traits.hpp \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/region_of_interest__traits.hpp \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__type_support.hpp \
   /usr/include/opencv4/opencv2/opencv.hpp \
   /usr/include/opencv4/opencv2/calib3d.hpp \
   /usr/include/opencv4/opencv2/features2d.hpp \
@@ -834,8 +841,12 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
   /usr/include/opencv4/opencv2/stitching/detail/camera.hpp \
   /usr/include/opencv4/opencv2/video.hpp \
   /usr/include/opencv4/opencv2/video/tracking.hpp \
-  /usr/include/opencv4/opencv2/video/background_segm.hpp
+  /usr/include/opencv4/opencv2/video/background_segm.hpp \
+  /usr/include/opencv4/opencv2/aruco.hpp \
+  /usr/include/opencv4/opencv2/aruco/dictionary.hpp
 
+
+/usr/include/opencv4/opencv2/aruco.hpp:
 
 /usr/include/opencv4/opencv2/video/background_segm.hpp:
 
@@ -923,6 +934,10 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
 
 /usr/include/opencv4/opencv2/opencv.hpp:
 
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__builder.hpp:
+
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/camera_info.hpp:
+
 /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge_export.h:
 
 /usr/include/opencv4/opencv2/imgproc/segmentation.hpp:
@@ -998,6 +1013,8 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp:
+
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__traits.hpp:
 
 /usr/include/opencv4/opencv2/core/utility.hpp:
 
@@ -1921,6 +1938,8 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
 
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
 
+/usr/include/opencv4/opencv2/aruco/dictionary.hpp:
+
 /usr/include/opencv4/opencv2/objdetect.hpp:
 
 /usr/include/c++/11/bits/node_handle.h:
@@ -1990,6 +2009,8 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
 /usr/include/c++/11/ext/string_conversions.h:
 
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__struct.hpp:
 
 /usr/include/c++/11/map:
 
@@ -2223,6 +2244,8 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
 
 /opt/ros/humble/include/rclcpp/rclcpp/contexts/default_context.hpp:
 
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/region_of_interest__struct.hpp:
+
 /opt/ros/humble/include/rclcpp/rclcpp/guard_condition.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:
@@ -2246,6 +2269,8 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
 /usr/include/x86_64-linux-gnu/bits/sigstksz.h:
 
 /usr/include/c++/11/optional:
+
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/camera_info__type_support.hpp:
 
 /usr/include/c++/11/sstream:
 
@@ -2466,6 +2491,8 @@ CMakeFiles/vision_node.dir/src/VisionNode.cpp.o: /home/ibrahim/MoveItArm/src/mov
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/region_of_interest__traits.hpp:
 
 /usr/include/c++/11/bits/specfun.h:
 

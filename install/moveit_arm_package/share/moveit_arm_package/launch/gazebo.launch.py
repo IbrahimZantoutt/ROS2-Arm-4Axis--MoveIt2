@@ -17,7 +17,11 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, RegisterEventHandler
+from launch.actions import (
+    IncludeLaunchDescription,
+    RegisterEventHandler,
+    SetEnvironmentVariable,
+)
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
@@ -32,12 +36,23 @@ def generate_launch_description():
     xacro_file = os.path.join(pkg_arm, "urdf", "arm.urdf.xacro")
     robot_description = {"robot_description": xacro.process_file(xacro_file).toxml()}
 
-    # 1. Gazebo
+    world_file = os.path.join(pkg_arm, "worlds", "blocks.world")
+
+    # Make model://aruco_marker (the marker's material script + texture)
+    # resolvable by Gazebo. Append to any existing GAZEBO_MODEL_PATH.
+    models_dir = os.path.join(pkg_arm, "models")
+    gazebo_model_path = os.environ.get("GAZEBO_MODEL_PATH", "")
+    set_model_path = SetEnvironmentVariable(
+        "GAZEBO_MODEL_PATH",
+        f"{models_dir}:{gazebo_model_path}" if gazebo_model_path else models_dir,
+    )
+
+    # 1. Gazebo (load our world with the blocks instead of the empty world)
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_gazebo_ros, "launch", "gazebo.launch.py")
         ),
-        launch_arguments={"verbose": "false"}.items(),
+        launch_arguments={"verbose": "false", "world": world_file}.items(),
     )
 
     # 2. robot_state_publisher
@@ -75,6 +90,7 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
+            set_model_path,
             gazebo,
             robot_state_publisher,
             spawn_entity,

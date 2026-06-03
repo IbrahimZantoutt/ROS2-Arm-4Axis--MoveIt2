@@ -9,8 +9,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <link name="camera_stand">
-        <visual><geometry><cylinder radius="0.02" length="1.0"/></geometry></visual>
-        <collision><geometry><cylinder radius="0.02" length="1.0"/></geometry></collision>
+        <visual><geometry><cylinder radius="0.02" length="0.4"/></geometry></visual>
+        <collision><geometry><cylinder radius="0.02" length="0.4"/></geometry></collision>
         <inertial>
             <mass value="0.5"/>
             <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0001"/>
@@ -20,7 +20,9 @@
     <joint name="world_to_camera_stand" type="fixed">
         <parent link="world"/>
         <child link="camera_stand"/>
-        <origin xyz="0.8 0 0.5" rpy="0 0 0"/>  <!-- 0.8m in front, 0.5m high -->
+        <!-- Close-up rig: stand 0.4m tall, centered at z=0.2 so it rests on the
+             ground at x=0.6, just in front of the block at x=0.35. -->
+        <origin xyz="0.6 0 0.2" rpy="0 0 0"/>
     </joint>
 
     <link name="camera_link">
@@ -39,7 +41,10 @@
     <joint name="stand_to_camera" type="fixed">
         <parent link="camera_stand"/>
         <child link="camera_link"/>
-        <origin xyz="0 0 0.5" rpy="0 0.5 3.14159"/>  <!-- tilt down, rotate to face arm -->
+        <!-- Camera at the top of the stand: world (0.6, 0, 0.4), ~0.48 m from the
+             block. yaw pi faces -x toward the block; pitch 0.9 rad (~52 deg)
+             tilts down to aim the optical axis at the block on the ground. -->
+        <origin xyz="0 0 0.2" rpy="0 0.9 3.14159"/>
     </joint>
 
     <!-- Optical frame: REP-103 convention (z forward, x right, y down) so the

@@ -120,6 +120,7 @@ int main(int argc, char *argv[]) {
   // The previous target (0.4, 0.0, 0.2) was only reachable through a self-colliding
   // posture (elbow_arm vs shoulder_arm), so MoveIt could never plan to it.
   node->moveToPose(0.25, 0.0, 0.70);
+  //node->moveToNamed("pose_3");
 
   rclcpp::spin(node);
   rclcpp::shutdown();

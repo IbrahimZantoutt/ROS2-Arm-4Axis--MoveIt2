@@ -20,7 +20,7 @@
     <joint name="world_to_camera_stand" type="fixed">
         <parent link="world"/>
         <child link="camera_stand"/>
-        <origin xyz="0.8 0 0.5" rpy="0 0 0"/>  <!-- 0.8m in front, 0.5m high -->
+        <origin xyz="1.8 0 0.5" rpy="0 0 0"/>  <!-- 0.8m in front, 0.5m high -->
     </joint>
 
     <link name="camera_link">

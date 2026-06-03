@@ -262,7 +262,9 @@
 				"urdf",
 				"launch",
 				"rviz",
-				"config"
+				"config",
+				"worlds",
+				"models"
 			],
 			"type" : "directory"
 		},

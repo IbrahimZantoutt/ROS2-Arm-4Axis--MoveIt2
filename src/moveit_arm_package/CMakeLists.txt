@@ -32,7 +32,7 @@ install(TARGETS arm_controller vision_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY urdf launch rviz config
+install(DIRECTORY urdf launch rviz config worlds models
   DESTINATION share/${PROJECT_NAME}
 )
 
