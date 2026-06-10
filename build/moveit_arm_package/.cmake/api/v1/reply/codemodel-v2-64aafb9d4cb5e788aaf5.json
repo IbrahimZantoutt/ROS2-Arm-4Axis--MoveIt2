@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-0a903b0c6be0a25e2bd4.json",
+					"jsonFile" : "directory-.-Release-0a903b0c6be0a25e2bd4.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -23,7 +23,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -46,28 +46,28 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "arm_controller::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-arm_controller-815ca08cb0fc06778e2a.json",
+					"jsonFile" : "target-arm_controller-Release-dd30cdd464b3c77256e9.json",
 					"name" : "arm_controller",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "moveit_arm_package_uninstall::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-moveit_arm_package_uninstall-cfb593c95243161141d3.json",
+					"jsonFile" : "target-moveit_arm_package_uninstall-Release-cfb593c95243161141d3.json",
 					"name" : "moveit_arm_package_uninstall",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "uninstall::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-uninstall-8fd3549a93a5b552bc3f.json",
+					"jsonFile" : "target-uninstall-Release-8fd3549a93a5b552bc3f.json",
 					"name" : "uninstall",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "vision_node::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-vision_node-fc308a9c46de092dea79.json",
+					"jsonFile" : "target-vision_node-Release-9253fee005deaa5e4676.json",
 					"name" : "vision_node",
 					"projectIndex" : 0
 				}

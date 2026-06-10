@@ -31,6 +31,9 @@ static constexpr double kShoulder[3] = {0.0, 0.0, 0.18};
 static constexpr double kReachMax = 0.85;
 static constexpr double kReachMin = 0.15;
 
+// Don't flood the arm: publish at most one target per this interval.
+static const rclcpp::Duration kPublishPeriod = rclcpp::Duration::from_seconds(1.0);
+
 class VisionNode : public rclcpp::Node {
     public:
         VisionNode() : Node("vision_node") {
@@ -171,34 +174,46 @@ class VisionNode : public rclcpp::Node {
                 RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 500,
                     "object in %s: x=%.3f y=%.3f z=%.3f -> REACHABLE",
                     kTargetFrame, p_base.point.x, p_base.point.y, p_base.point.z);
-                
-                    geometry_msgs::msg::PointStamped target_msg;
-                    target_msg.header.stamp = this->get_clock()->now();
-                    target_msg.header.frame_id = kTargetFrame;
-                    target_msg.point = p_base.point;
-                    target_publisher_->publish(target_msg);
 
+                publishTarget(p_base.point);
             } else {
                 // Closest reachable point = clamp the object onto the shell along
                 // the ray from the shoulder (nearest point on a sphere to an
                 // outside/inside point lies on that radial line).
                 const double target = (r > kReachMax) ? kReachMax : kReachMin;
                 const double s = (r > 1e-6) ? target / r : 0.0;
-                const double cx = kShoulder[0] + dx * s;
-                const double cy = kShoulder[1] + dy * s;
-                const double cz = kShoulder[2] + dz * s;
+                geometry_msgs::msg::Point clamped;
+                clamped.x = kShoulder[0] + dx * s;
+                clamped.y = kShoulder[1] + dy * s;
+                clamped.z = kShoulder[2] + dz * s;
                 RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 500,
                     "object in %s: x=%.3f y=%.3f z=%.3f -> UNREACHABLE (dist=%.3f m, "
-                    "shell=[%.2f,%.2f]); closest reachable: x=%.3f y=%.3f z=%.3f",
+                    "shell=[%.2f,%.2f]); sending closest reachable: x=%.3f y=%.3f z=%.3f",
                     kTargetFrame, p_base.point.x, p_base.point.y, p_base.point.z,
-                    r, kReachMin, kReachMax, cx, cy, cz);
+                    r, kReachMin, kReachMax, clamped.x, clamped.y, clamped.z);
 
-                geometry_msgs::msg::PointStamped target_msg;
-                    target_msg.header.stamp = this->get_clock()->now();
-                    target_msg.header.frame_id = kTargetFrame;
-                    target_msg.point = p_base.point;
-                    target_publisher_->publish(target_msg);
+                // Publish the clamped point, not the raw (out-of-reach) one, so
+                // the arm is always given something it can actually try to reach.
+                publishTarget(clamped);
             }
+        }
+
+        // Publish a target, rate-limited to kPublishPeriod. The vision callbacks
+        // run at camera rate (~30 Hz) but the arm only needs an occasional goal;
+        // throttling here keeps the topic (and the arm's logs) sane.
+        void publishTarget(const geometry_msgs::msg::Point & point) {
+            const rclcpp::Time now = this->get_clock()->now();
+            if (last_publish_time_.nanoseconds() != 0 &&
+                (now - last_publish_time_) < kPublishPeriod) {
+                return;
+            }
+            last_publish_time_ = now;
+
+            geometry_msgs::msg::PointStamped target_msg;
+            target_msg.header.stamp = now;
+            target_msg.header.frame_id = kTargetFrame;
+            target_msg.point = point;
+            target_publisher_->publish(target_msg);
         }
 
         rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr image_subscriber_;
@@ -211,6 +226,8 @@ class VisionNode : public rclcpp::Node {
 
         std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
         std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+
+        rclcpp::Time last_publish_time_{0, 0, RCL_ROS_TIME};
 };
 
 int main(int argc, char *argv[]) {
