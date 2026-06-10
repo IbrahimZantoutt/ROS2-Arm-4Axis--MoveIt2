@@ -3,11 +3,16 @@
 #include "geometry_msgs/msg/pose.hpp"
 #include "moveit_msgs/srv/get_position_ik.hpp"
 #include "moveit_msgs/msg/move_it_error_codes.hpp"
+#include "geometry_msgs/msg/point_stamped.hpp"
 
 
 class ArmController : public rclcpp::Node {
 public:
-  ArmController() : Node("arm_controller") {}
+  ArmController() : Node("arm_controller") {
+    target_subscription_ = this->create_subscription<geometry_msgs::msg::PointStamped>
+      ("object_position", 10, std::bind(&ArmController::targetCallback, this, std::placeholders::_1));
+
+  }
 
   void init() {
     move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
@@ -105,9 +110,18 @@ public:
     }
   }
 
+  void targetCallback(geometry_msgs::msg::PointStamped::SharedPtr msg){
+    RCLCPP_INFO(get_logger(), "Received target: x=%.3f y=%.3f z=%.3f",
+      msg->point.x, msg->point.y, msg->point.z);
+
+    // For simplicity, use a fixed orientation (e.g., end-effector pointing down).
+    moveToPose(msg->point.x, msg->point.y, msg->point.z);
+  }
+
 private:
   std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface_;
   rclcpp::Client<moveit_msgs::srv::GetPositionIK>::SharedPtr ik_client_;
+  rclcpp::Subscription<geometry_msgs::msg::PointStamped>::SharedPtr target_subscription_;
 };
 
 int main(int argc, char *argv[]) {
@@ -119,7 +133,7 @@ int main(int argc, char *argv[]) {
   // (0.25, 0.0, 0.70) with default (identity) orientation — verified collision-free.
   // The previous target (0.4, 0.0, 0.2) was only reachable through a self-colliding
   // posture (elbow_arm vs shoulder_arm), so MoveIt could never plan to it.
-  node->moveToPose(0.25, 0.0, 0.70);
+  //node->moveToPose(0.25, 0.0, 0.70);
   //node->moveToNamed("pose_3");
 
   rclcpp::spin(node);

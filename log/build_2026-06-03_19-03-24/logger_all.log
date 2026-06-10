@@ -113,3 +113,62 @@
 [0.396s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
 [0.396s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
 [0.409s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ibrahim/MoveItArm/build/moveit_arm_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ibrahim/RobotArm/install/main_arm_package:/home/ibrahim/RobotArm/install/action_interfaces:/opt/ros/humble /usr/bin/cmake --build /home/ibrahim/MoveItArm/build/moveit_arm_package -- -j16 -l16
+[13.435s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ibrahim/MoveItArm/build/moveit_arm_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ibrahim/RobotArm/install/main_arm_package:/home/ibrahim/RobotArm/install/action_interfaces:/opt/ros/humble /usr/bin/cmake --build /home/ibrahim/MoveItArm/build/moveit_arm_package -- -j16 -l16
+[13.447s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ibrahim/MoveItArm/build/moveit_arm_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ibrahim/RobotArm/install/main_arm_package:/home/ibrahim/RobotArm/install/action_interfaces:/opt/ros/humble /usr/bin/cmake --install /home/ibrahim/MoveItArm/build/moveit_arm_package
+[13.467s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moveit_arm_package)
+[13.468s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ibrahim/MoveItArm/build/moveit_arm_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ibrahim/RobotArm/install/main_arm_package:/home/ibrahim/RobotArm/install/action_interfaces:/opt/ros/humble /usr/bin/cmake --install /home/ibrahim/MoveItArm/build/moveit_arm_package
+[13.470s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package' for CMake module files
+[13.471s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package' for CMake config files
+[13.471s] Level 1:colcon.colcon_core.shell:create_environment_hook('moveit_arm_package', 'cmake_prefix_path')
+[13.471s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/hook/cmake_prefix_path.ps1'
+[13.472s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/hook/cmake_prefix_path.dsv'
+[13.473s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/hook/cmake_prefix_path.sh'
+[13.474s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/lib'
+[13.474s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/bin'
+[13.474s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/lib/pkgconfig/moveit_arm_package.pc'
+[13.474s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/lib/python3.10/site-packages'
+[13.474s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/bin'
+[13.475s] INFO:colcon.colcon_core.shell:Creating package script '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.ps1'
+[13.475s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.dsv'
+[13.476s] INFO:colcon.colcon_core.shell:Creating package script '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.sh'
+[13.476s] INFO:colcon.colcon_core.shell:Creating package script '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.bash'
+[13.477s] INFO:colcon.colcon_core.shell:Creating package script '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.zsh'
+[13.477s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ibrahim/MoveItArm/install/moveit_arm_package/share/colcon-core/packages/moveit_arm_package)
+[13.478s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moveit_arm_package)
+[13.478s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package' for CMake module files
+[13.479s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package' for CMake config files
+[13.479s] Level 1:colcon.colcon_core.shell:create_environment_hook('moveit_arm_package', 'cmake_prefix_path')
+[13.480s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/hook/cmake_prefix_path.ps1'
+[13.480s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/hook/cmake_prefix_path.dsv'
+[13.480s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/hook/cmake_prefix_path.sh'
+[13.481s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/lib'
+[13.481s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/bin'
+[13.481s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/lib/pkgconfig/moveit_arm_package.pc'
+[13.481s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/lib/python3.10/site-packages'
+[13.481s] Level 1:colcon.colcon_core.environment:checking '/home/ibrahim/MoveItArm/install/moveit_arm_package/bin'
+[13.482s] INFO:colcon.colcon_core.shell:Creating package script '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.ps1'
+[13.482s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.dsv'
+[13.482s] INFO:colcon.colcon_core.shell:Creating package script '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.sh'
+[13.483s] INFO:colcon.colcon_core.shell:Creating package script '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.bash'
+[13.483s] INFO:colcon.colcon_core.shell:Creating package script '/home/ibrahim/MoveItArm/install/moveit_arm_package/share/moveit_arm_package/package.zsh'
+[13.483s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ibrahim/MoveItArm/install/moveit_arm_package/share/colcon-core/packages/moveit_arm_package)
+[13.484s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[13.485s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[13.485s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[13.485s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[13.530s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[13.531s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[13.531s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[13.531s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[13.531s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.FileNotFound: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[13.531s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[13.532s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ibrahim/MoveItArm/install/local_setup.ps1'
+[13.533s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ibrahim/MoveItArm/install/_local_setup_util_ps1.py'
+[13.533s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ibrahim/MoveItArm/install/setup.ps1'
+[13.535s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ibrahim/MoveItArm/install/local_setup.sh'
+[13.535s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ibrahim/MoveItArm/install/_local_setup_util_sh.py'
+[13.536s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ibrahim/MoveItArm/install/setup.sh'
+[13.537s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ibrahim/MoveItArm/install/local_setup.bash'
+[13.537s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ibrahim/MoveItArm/install/setup.bash'
+[13.538s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ibrahim/MoveItArm/install/local_setup.zsh'
+[13.538s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ibrahim/MoveItArm/install/setup.zsh'

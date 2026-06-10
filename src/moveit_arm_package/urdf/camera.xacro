@@ -57,11 +57,15 @@
         <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
     </joint>
 
-    <!-- Gazebo Classic camera sensor + ROS 2 plugin.
-         The published topics are <camera_name>/image_raw and
-         <camera_name>/camera_info, i.e. /camera/image_raw + /camera/camera_info. -->
+    <!-- Gazebo Classic RGB-D (depth) sensor + ROS 2 plugin.
+         type="depth" makes libgazebo_ros_camera publish, all sharing
+         camera_optical_frame and the same intrinsics:
+           /camera/image_raw          (rgb)
+           /camera/depth/image_raw    (32FC1 depth in metres)
+           /camera/camera_info        (intrinsics)
+           /camera/points             (PointCloud2) -->
     <gazebo reference="camera_link">
-        <sensor name="camera" type="camera">
+        <sensor name="camera" type="depth">
             <always_on>true</always_on>
             <update_rate>30</update_rate>
             <camera>
@@ -79,6 +83,9 @@
             <plugin name="camera_plugin" filename="libgazebo_ros_camera.so">
                 <camera_name>camera</camera_name>
                 <frame_name>camera_optical_frame</frame_name>
+                <!-- valid depth range; readings outside come back as NaN -->
+                <min_depth>0.05</min_depth>
+                <max_depth>10.0</max_depth>
             </plugin>
         </sensor>
     </gazebo>

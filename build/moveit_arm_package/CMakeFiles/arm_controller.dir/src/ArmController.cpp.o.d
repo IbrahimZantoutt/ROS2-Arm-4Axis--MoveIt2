@@ -1289,4 +1289,9 @@ CMakeFiles/arm_controller.dir/src/ArmController.cpp.o: \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_position_ik__builder.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_position_ik__traits.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/position_ik_request__traits.hpp \
- /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_position_ik__type_support.hpp
+ /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_position_ik__type_support.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__builder.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__traits.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__type_support.hpp

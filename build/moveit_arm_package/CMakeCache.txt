@@ -490,6 +490,9 @@ iceoryx_hoofs_DIR:PATH=/opt/ros/humble/lib/x86_64-linux-gnu/cmake/iceoryx_hoofs
 //The directory containing a CMake configuration file for iceoryx_posh.
 iceoryx_posh_DIR:PATH=/opt/ros/humble/lib/x86_64-linux-gnu/cmake/iceoryx_posh
 
+//The directory containing a CMake configuration file for image_geometry.
+image_geometry_DIR:PATH=/opt/ros/humble/share/image_geometry/cmake
+
 //The directory containing a CMake configuration file for kdl_parser.
 kdl_parser_DIR:PATH=/opt/ros/humble/share/kdl_parser/cmake
 

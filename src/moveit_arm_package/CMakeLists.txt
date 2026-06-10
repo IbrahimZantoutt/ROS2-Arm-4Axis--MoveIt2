@@ -11,6 +11,9 @@ find_package(moveit_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(image_geometry REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 
 add_executable(arm_controller src/ArmController.cpp)
 ament_target_dependencies(arm_controller
@@ -24,8 +27,12 @@ add_executable(vision_node src/VisionNode.cpp)
 ament_target_dependencies(vision_node
   rclcpp
   sensor_msgs
+  geometry_msgs
   cv_bridge
   OpenCV
+  image_geometry
+  tf2_ros
+  tf2_geometry_msgs
 )
 
 install(TARGETS arm_controller vision_node

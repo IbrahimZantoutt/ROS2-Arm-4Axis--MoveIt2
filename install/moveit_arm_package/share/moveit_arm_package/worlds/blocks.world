@@ -36,22 +36,6 @@
             <diffuse>0.1 0.7 0.1 1</diffuse>
           </material>
         </visual>
-        <!-- ArUco marker (DICT_4X4_50, id 0) lying flat on the top face.
-             Block is 0.04 tall (half = 0.02); the 0.001-thick plate sits just
-             above it. The texture has a white quiet zone, so the BLACK marker
-             square is 0.03 m on a side (600/800 of the 0.04 plate) -- that is
-             the value VisionNode passes to estimatePoseSingleMarkers. -->
-        <visual name="aruco_marker">
-          <pose>0 0 0.0206 0 0 0</pose>
-          <geometry><box><size>0.04 0.04 0.001</size></box></geometry>
-          <material>
-            <script>
-              <uri>model://aruco_marker/materials/scripts</uri>
-              <uri>model://aruco_marker/materials/textures</uri>
-              <name>ArucoMarker/Marker0</name>
-            </script>
-          </material>
-        </visual>
       </link>
     </model>
 
