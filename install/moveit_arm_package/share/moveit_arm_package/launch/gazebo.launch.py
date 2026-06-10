@@ -14,6 +14,7 @@ ros2_control blocks claiming the same joints.
 """
 
 import os
+import re
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -34,7 +35,16 @@ def generate_launch_description():
     pkg_gazebo_ros = get_package_share_directory("gazebo_ros")
 
     xacro_file = os.path.join(pkg_arm, "urdf", "arm.urdf.xacro")
-    robot_description = {"robot_description": xacro.process_file(xacro_file).toxml()}
+    # gazebo_ros2_control 0.4.x forwards robot_description to the internal
+    # controller_manager as a command-line "--param robot_description:=<xml>"
+    # override. rcl's argument parser chokes on the XML declaration and the
+    # (multi-line) comments xacro emits, so the controller_manager never starts
+    # and no controllers/joint_states ever come up. Strip both before publishing.
+    # See ros-controls/gazebo_ros2_control#295.
+    raw_urdf = xacro.process_file(xacro_file).toxml()
+    clean_urdf = re.sub(r"<!--.*?-->", "", raw_urdf, flags=re.DOTALL)
+    clean_urdf = re.sub(r"<\?xml[^>]*\?>", "", clean_urdf).strip()
+    robot_description = {"robot_description": clean_urdf}
 
     world_file = os.path.join(pkg_arm, "worlds", "blocks.world")
 

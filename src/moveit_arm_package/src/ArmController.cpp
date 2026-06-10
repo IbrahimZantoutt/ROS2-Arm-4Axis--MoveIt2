@@ -89,7 +89,7 @@ public:
   }
 
   void moveToPose(double x, double y, double z,
-                  double qx = 0.0, double qy = 0.0, double qz = 0.0, double qw = 1.0) {
+                  double qx = 0.0, double qy = 0.7071, double qz = 0.0, double qw = 0.7071) {
     geometry_msgs::msg::Pose target;
     target.position.x = x;
     target.position.y = y;
@@ -182,17 +182,25 @@ int main(int argc, char *argv[]) {
   auto node = std::make_shared<ArmController>();
   node->init();
 
+  // Spin in a background thread so the executor is running *before* we make any
+  // blocking calls. isPoseReachable() sends an async compute_ik request and waits
+  // on the future — that future is only fulfilled by the executor, so without this
+  // the pre-check always times out and gets skipped. The worker path (node->start())
+  // relies on the same spinning executor, so this works for both modes.
+  std::thread spin_thread([node]() { rclcpp::spin(node); });
+
   //node->moveToNamed("pose_1");
   // (0.25, 0.0, 0.70) with default (identity) orientation — verified collision-free.
   // The previous target (0.4, 0.0, 0.2) was only reachable through a self-colliding
   // posture (elbow_arm vs shoulder_arm), so MoveIt could never plan to it.
-  //node->moveToPose(0.25, 0.0, 0.70);
+  //node->moveToPose(0.36, 0.0, 0.50);
+  //node->moveToPose(0.362, 0.142, 0.80);
   //node->moveToNamed("pose_3");
 
-  // Start the motion worker, then spin the node. The worker thread blocks on the
-  // compute_ik future; this spin() is what delivers that service response.
+  // Later: enable the camera-driven worker instead of the direct test call above.
   node->start();
-  rclcpp::spin(node);
+  
+  spin_thread.join();
   rclcpp::shutdown();
   return 0;
 }

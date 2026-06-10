@@ -34,6 +34,11 @@ static constexpr double kReachMin = 0.15;
 // Don't flood the arm: publish at most one target per this interval.
 static const rclcpp::Duration kPublishPeriod = rclcpp::Duration::from_seconds(1.0);
 
+// The object sits on the ground (z ~ 0), which the arm can't reach without
+// driving the end-effector into the floor. Keep the detected x,y but command a
+// fixed hover height above it in the robot_base frame. Tune to taste.
+static constexpr double kHoverHeight = 0.7;
+
 class VisionNode : public rclcpp::Node {
     public:
         VisionNode() : Node("vision_node") {
@@ -213,6 +218,7 @@ class VisionNode : public rclcpp::Node {
             target_msg.header.stamp = now;
             target_msg.header.frame_id = kTargetFrame;
             target_msg.point = point;
+            target_msg.point.z = kHoverHeight;  // hover above the object, don't dive to the floor
             target_publisher_->publish(target_msg);
         }
 
